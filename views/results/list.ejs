@@ -1,4 +1,4 @@
-<%- include('../_layout/header'); -%>
+<%- include('../_layout/header'); %>
 
 <h3 class="text-center">Student Results</h3>
 
@@ -26,14 +26,14 @@
         <td scope="row"><%= result.rollno %></td>
         <td><%= result.name %></td>
         <td>
-          <%= ('0' + result.dob.getDate()).slice(-2) %>-<%= ('0' + result.dob.getMonth()).slice(-2) %>-<%= result.dob.getFullYear() %>
+          <%= ('0' + result.dob.getDate()).slice(-2) %>-<%= ('0' + result.dob.getMonth() + 1).slice(-2) %>-<%= result.dob.getFullYear() %>
         </td>
         <td><%= result.score %></td>
         <td>
           <a href="/results/edit/<%= result.rollno %>" class="btn btn-outline-info">
             <i class="bi bi-pencil"></i>
           </a>
-          <a class="btn btn-outline-danger">
+          <a href="/results/delete/<%= result.rollno %>" class="btn btn-outline-danger">
             <i class="bi bi-trash"></i>
           </a>
         </td>
@@ -42,4 +42,4 @@
   </tbody>
 </table>
 
-<%- include('../_layout/footer'); -%>
+<%- include('../_layout/footer'); %>

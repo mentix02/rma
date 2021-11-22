@@ -1,6 +1,6 @@
-<%- include('../_layout/header'); -%>
+<%- include('../_layout/header'); %>
 
-<h3 class="text-center">Add Result</h3>
+<h3 class="text-center"><%= locals.submitBtnMsg ? submitBtnMsg : "Add Result" %></h3>
 
 <div class="row">
   <div class="col-sm-12 col-md-4 offset-md-4">
@@ -16,30 +16,38 @@
 
       <div class="mb-3">
         <label for="rollno" class="form-label">Roll No.</label>
-        <input id="rollno" name="rollno" type="number" class="form-control" 
-          value="<%= locals.rollno %>" required autofocus />
+        <% if (locals.rollno) { %>
+          <input id="rollno" name="rollno" type="number" class="form-control" 
+            value="<%= locals.rollno %>" disabled />
+        <% } else { %>
+          <input id="rollno" name="rollno" type="number" class="form-control" autofocus />
+        <% } %>
       </div>
 
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input id="name" name="name" class="form-control" 
+        <input id="name" name="name" class="form-control" <%= locals.name ? "autofocus" : "" %>
           value="<%= locals.name %>" required />
       </div>
 
       <div class="mb-3">
         <label for="dob" class="form-label">Date of Birth</label>
-        <input id="dob" name="dob" type="date" class="form-control"
-          value="<%= locals.dob.getFullYear() %>-<%= ('0' + locals.dob.getMonth()).slice(-2) %>-<%= ('0' + locals.dob.getDate()).slice(-2) %>" required />
+        <% if (locals.dob) { %>
+          <input id="dob" name="dob" type="date" class="form-control"
+            value="<%= locals.dob.getFullYear() %>-<%= ('0' + locals.dob.getMonth() + 1).slice(-2) %>-<%= ('0' + locals.dob.getDate()).slice(-2) %>" required />
+        <% } else { %>
+          <input id="dob" name="dob" type="date" class="form-control" required />
+        <% } %>
       </div>
 
       <div class="mb-3">
         <label for="score" class="form-label">Score</label>
-        <input id="score" name="score" type="text" class="form-control" 
+        <input id="score" name="score" type="number" class="form-control" 
           value="<%= locals.score %>" required />
       </div>
 
       <div class="pt-2 d-grid gap-2">
-        <button class="btn btn-primary" type="submit">Sign In</button>
+        <button class="btn btn-primary" type="submit"><%= locals.submitBtnMsg ? submitBtnMsg : "Add Result" %></button>
         <button class="btn btn-outline-warning" type="reset">Clear</button>        
       </div>
 
@@ -59,4 +67,4 @@
 </script>
 <script src="/javascript/dismissAlert.js"></script>
 
-<%- include('../_layout/footer'); -%>
+<%- include('../_layout/footer'); %>
