@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "toor",
+    "database": "rmaDev",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "toor",
+    "database": "rmaTest",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "toor",
+    "database": "rmaProd",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
