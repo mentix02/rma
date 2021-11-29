@@ -35,7 +35,14 @@ mysql> exit;
 ```
 
 4. edit `config/config.json` and replace the password field with your own password
-5. run server
+
+5. run migrations
+
+```sh
+$ npx sequelize db:migrate
+```
+
+6. run server
 
 ```
 $ npm start
